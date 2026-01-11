@@ -6,7 +6,7 @@ import { useSmoothScroll } from "./hooks/useSmoothScroll";
 import { PhaseSection } from "./components/MonthSection";
 import { PhaseNav } from "./components/MonthNav";
 import { Lightbox } from "./components/Lightbox";
-import { PHASES, PUM_SECTIONS, type Photo } from "./data/gallery";
+import { PHASES, type Photo } from "./data/gallery";
 
 gsap.registerPlugin(ScrollTrigger);
 
