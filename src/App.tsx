@@ -122,11 +122,8 @@ function HomePage() {
           }`}
           style={{ color: "#ae2070" }}
         >
-          2025's Recap
+          Project's Recap
         </h1>
-        <p className='font-body text-sm italic' style={{ color: "#666666" }}>
-          A Year in Photos
-        </p>
       </header>
 
       {/* Horizontal Scroll Wrapper */}
@@ -160,7 +157,7 @@ function HomePage() {
               className='mt-8 max-w-md text-center font-body text-lg'
               style={{ color: "#666666" }}
             >
-              MoMo Project Recap for 2025
+              MoMo Project Recap
             </p>
             <div
               className='mt-12 flex items-center gap-2'
