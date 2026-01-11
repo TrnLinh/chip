@@ -122,7 +122,7 @@ function HomePage() {
           }`}
           style={{ color: "#ae2070" }}
         >
-          Project's Recap
+         Thức Xuân Mở Lối
         </h1>
       </header>
 
@@ -143,15 +143,15 @@ function HomePage() {
               }`}
               style={{ color: "#ae2070" }}
             >
-              Twenty
+              Thức Xuân
             </h2>
             <h2
-              className={`font-display ${
+              className={`font-display italic ${
                 isMobile ? "text-5xl" : "text-6xl md:text-8xl lg:text-9xl"
               }`}
               style={{ color: "#ae2070" }}
             >
-              Twenty-Five
+              Mở Lối
             </h2>
             <p
               className='mt-8 max-w-md text-center font-body text-lg'
@@ -196,35 +196,7 @@ function HomePage() {
             />
           ))}
 
-          {/* Outro Section */}
-          <section
-            className={`flex flex-col items-center justify-center ${
-              isMobile
-                ? "outro-section-mobile min-h-[60vh] w-full px-6 py-16"
-                : "h-screen w-screen shrink-0 px-8"
-            }`}
-          >
-            <h2
-              className={`font-display italic text-black ${
-                isMobile ? "text-4xl" : "text-5xl md:text-7xl lg:text-8xl"
-              }`}
-            >
-              Until
-            </h2>
-            <h2
-              className={`font-display text-black ${
-                isMobile ? "text-4xl" : "text-5xl md:text-7xl lg:text-8xl"
-              }`}
-            >
-              Next Year
-            </h2>
-            <p className='mt-8 max-w-md text-center font-body text-lg text-gray'>
-              We will see how dumb I can be at the end of 2026
-            </p>
-            <div className='mt-12 font-headline text-xl tracking-widest text-light-gray'>
-              2026
-            </div>
-          </section>
+
         </div>
       </div>
 
