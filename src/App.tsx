@@ -122,7 +122,7 @@ function HomePage() {
           }`}
           style={{ color: "#ae2070" }}
         >
-         Thức Xuân Mở Lối
+          Thức Xuân Mở Lối
         </h1>
       </header>
 
@@ -195,10 +195,29 @@ function HomePage() {
               isMobile={isMobile}
             />
           ))}
-
-
         </div>
       </div>
+
+      <section
+        className={`flex flex-col items-center justify-center ${
+          isMobile
+            ? "outro-section-mobile min-h-[60vh] w-full px-6 py-16"
+            : "h-screen w-screen flex-shrink-0 px-8"
+        }`}
+      >
+        <h2
+          className={`font-display italic  ${
+            isMobile ? "text-4xl" : "text-5xl md:text-7xl lg:text-8xl"
+          }`}
+          style={{ color: "#ae2070" }}
+        >
+          Thank you
+        </h2>
+
+        <p className='mt-8 max-w-md text-center font-body text-lg text-gray'>
+          for being part of a meaningful Tet season with us.
+        </p>
+      </section>
 
       {/* Bottom Navigation */}
       <PhaseNav scrollTo={scrollTo} isMobile={isMobile} />
@@ -209,56 +228,10 @@ function HomePage() {
   );
 }
 
-function Pum() {
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-
-  const handleImageClick = (filename: string) => {
-    setSelectedPhoto({
-      id: filename,
-      src: `/photo/pum/${encodeURIComponent(filename)}`,
-      type: "image",
-    });
-  };
-
-  return (
-    <div className='pum-page'>
-      <header className='pum-header'>
-        <h1 className='font-display'>Pum</h1>
-      </header>
-
-      {PUM_SECTIONS.map((section, sectionIndex) => (
-        <div key={sectionIndex} className='pum-section'>
-          {section.date && (
-            <h2 className='pum-section-date font-headline'>{section.date}</h2>
-          )}
-          <div className='pum-gallery'>
-            {section.images.map((filename) => (
-              <div
-                key={filename}
-                className='pum-gallery-item'
-                onClick={() => handleImageClick(filename)}
-              >
-                <img
-                  src={`/photo/pum/${encodeURIComponent(filename)}`}
-                  alt=''
-                  loading='lazy'
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-
-      <Lightbox photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
-    </div>
-  );
-}
-
 export function App() {
   return (
     <Routes>
       <Route path='/' element={<HomePage />} />
-      <Route path='/pum' element={<Pum />} />
     </Routes>
   );
 }

@@ -209,22 +209,6 @@ section[id] {
   background-color: #f5e6ef;
 }
 
-/* Grayscale overlay for photo cards */
-.photo-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: gray;
-  mix-blend-mode: saturation;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-}
-
-.photo-card:hover::after {
-  opacity: 0;
-}
-
 .photo-card img {
   width: 100%;
   height: 100%;
@@ -339,22 +323,6 @@ section[id] {
   height: 100%;
   overflow: hidden;
   background-color: #fff;
-}
-
-/* Grayscale overlay using mix-blend-mode (more performant than filter) */
-.bento-image-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: gray;
-  mix-blend-mode: saturation;
-  pointer-events: none;
-  transition: opacity 0.5s ease;
-  z-index: 1;
-}
-
-.bento-item:hover .bento-image-wrapper::after {
-  opacity: 0;
 }
 
 /* Lazy image container */
@@ -1020,15 +988,6 @@ section[id] {
 
   /* Hide skeleton loader on mobile */
   .skeleton-loader {
-    display: none !important;
-  }
-
-  /* Remove grayscale effect on mobile */
-  .bento-image-wrapper::after {
-    display: none !important;
-  }
-
-  .photo-card::after {
     display: none !important;
   }
 
