@@ -1,0 +1,1226 @@
+@import url("https://fonts.googleapis.com/css2?family=Momo+Trust+Display:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Typography - MoMo Branding */
+  --font-display: "Momo Trust Display", sans-serif;
+  --font-headline: "Momo Trust Display", sans-serif;
+  --font-body: "Momo Trust Display", sans-serif;
+
+  /* Colors - MoMo Branding */
+  --color-momo-pink: #ae2070;
+  --color-momo-pink-light: #d82d8b;
+  --color-momo-pink-dark: #8a1a5a;
+  --color-black: #1a1a1a;
+  --color-off-black: #2d2d2d;
+  --color-gray: #666666;
+  --color-light-gray: #f5e6ef;
+  --color-off-white: #fdf8fb;
+  --color-white: #ffffff;
+}
+
+/* Base styles */
+html {
+  background-color: #fdf8fb;
+  color: #1a1a1a;
+  font-family: "Momo Trust Display", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #fdf8fb;
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Typography utility classes */
+.font-display {
+  font-family: "Momo Trust Display", sans-serif !important;
+}
+
+.font-headline {
+  font-family: "Momo Trust Display", sans-serif !important;
+}
+
+.font-body {
+  font-family: "Momo Trust Display", sans-serif !important;
+}
+
+/* Color utility classes */
+.bg-off-white {
+  background-color: #fdf8fb !important;
+}
+
+.bg-black {
+  background-color: #1a1a1a !important;
+}
+
+.bg-light-gray {
+  background-color: #f5e6ef !important;
+}
+
+.bg-momo-pink {
+  background-color: #ae2070 !important;
+}
+
+.text-black {
+  color: #1a1a1a !important;
+}
+
+.text-off-black {
+  color: #2d2d2d !important;
+}
+
+.text-gray {
+  color: #666666 !important;
+}
+
+.text-light-gray {
+  color: #f5e6ef !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-momo-pink {
+  color: #ae2070 !important;
+}
+
+.border-black {
+  border-color: #1a1a1a !important;
+}
+
+.border-momo-pink {
+  border-color: #ae2070 !important;
+}
+
+.from-off-white {
+  --tw-gradient-from: #fdf8fb;
+}
+
+.via-off-white\/95 {
+  --tw-gradient-via: rgba(253, 248, 251, 0.95);
+}
+
+/* Phase/Month title styling - Vertical (legacy) */
+.month-title,
+.phase-title {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 10vw;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  color: #ae2070;
+}
+
+/* Phase Title - Above Grid */
+.phase-number {
+  display: block;
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ae2070;
+  opacity: 0.6;
+  margin-bottom: 0.25rem;
+}
+
+.phase-title-horizontal {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: #ae2070;
+}
+
+/* Year watermark */
+.year-watermark {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 25vw;
+  letter-spacing: 0.05em;
+  color: #ae2070;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Navigation text */
+.nav-text {
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Content visibility optimization disabled - was causing scroll calculation issues */
+/*
+section[id] {
+  content-visibility: auto;
+  contain-intrinsic-size: 100vh 1200px;
+}
+*/
+
+/* Horizontal scroll wrapper */
+.horizontal-scroll-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.horizontal-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  will-change: transform;
+}
+
+/* Photo card styling */
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  background-color: #f5e6ef;
+}
+
+/* Grayscale overlay for photo cards */
+.photo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: gray;
+  mix-blend-mode: saturation;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.photo-card:hover::after {
+  opacity: 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Selection styling */
+::selection {
+  background-color: #ae2070;
+  color: #ffffff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5e6ef;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ae2070;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8a1a5a;
+}
+
+/* Debug: visible divider */
+.bg-light-gray {
+  background-color: #f5e6ef !important;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "a a b c"
+    "a a d c"
+    "e e f f";
+  gap: 12px;
+  height: fit-content;
+}
+
+.bento-item {
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #ae2070;
+  background-color: #f5e6ef;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-item:hover {
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+/* Grid area assignments */
+.bento-a {
+  grid-area: a;
+}
+.bento-b {
+  grid-area: b;
+}
+.bento-c {
+  grid-area: c;
+}
+.bento-d {
+  grid-area: d;
+}
+.bento-e {
+  grid-area: e;
+}
+.bento-f {
+  grid-area: f;
+}
+.bento-g {
+  grid-area: g;
+}
+.bento-h {
+  grid-area: h;
+}
+.bento-i {
+  grid-area: i;
+}
+.bento-j {
+  grid-area: j;
+}
+.bento-k {
+  grid-area: k;
+}
+.bento-l {
+  grid-area: l;
+}
+.bento-m {
+  grid-area: m;
+}
+.bento-n {
+  grid-area: n;
+}
+.bento-o {
+  grid-area: o;
+}
+
+.bento-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* Grayscale overlay using mix-blend-mode (more performant than filter) */
+.bento-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: gray;
+  mix-blend-mode: saturation;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.bento-item:hover .bento-image-wrapper::after {
+  opacity: 0;
+}
+
+/* Lazy image container */
+.lazy-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Skeleton loader */
+.skeleton-loader {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f5e6ef 0%, #fdf8fb 50%, #f5e6ef 100%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.bento-image-wrapper img,
+.bento-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-item:hover .bento-image-wrapper img,
+.bento-item:hover .bento-image {
+  transform: scale(1.05);
+}
+
+/* January bento grid (default) */
+.bento-grid-january {
+  grid-template-areas:
+    "a a b c"
+    "a a d c"
+    "e e f f";
+}
+
+/* February bento grid - with video on left */
+.bento-grid-february {
+  grid-template-columns: 300px repeat(3, 140px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "a b b c"
+    "a d e c"
+    "a f f f";
+}
+
+.bento-grid-february .bento-f img {
+  object-position: 0px -100px;
+}
+
+/* March bento grid */
+.bento-grid-march {
+  grid-template-columns: repeat(4, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "e e b c"
+    "e e f f"
+    "a d f f";
+}
+
+/* April bento grid - randomized layout */
+.bento-grid-april {
+  grid-template-columns: repeat(4, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "a a b c"
+    "d d b c"
+    "e f f f";
+}
+
+/* May bento grid - expanded horizontal layout (7 photos) */
+.bento-grid-may {
+  grid-template-columns: repeat(7, 160px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "f f a b g c c"
+    "f f h h h c c"
+    "i i h h h c c";
+  gap: 12px;
+}
+
+/* Quote photo h is now large enough to use cover */
+.bento-grid-may .bento-h .bento-image-wrapper img {
+  object-fit: cover;
+}
+
+/* June bento grid - wide panoramic layout (15 photos) */
+.bento-grid-june {
+  grid-template-columns: repeat(8, 160px);
+  grid-template-rows: repeat(4, 150px);
+  grid-template-areas:
+    "a a b b d e e g"
+    "a a b b d e e h"
+    "i i j k l m m o"
+    "i i n n f m m o";
+  gap: 12px;
+}
+
+/* July bento grid - dynamic summer layout (9 photos) */
+.bento-grid-july {
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(4, 180px);
+  grid-template-areas:
+    "a a b c g d"
+    "a a f f g d"
+    "h h e i i i"
+    "h h e i i i";
+  gap: 12px;
+}
+
+/* August bento grid - video feature layout (9 photos) */
+.bento-grid-august {
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "e e a a b c"
+    "e e d d g i"
+    "e e d d h i";
+  gap: 12px;
+}
+
+/* August video styling */
+.bento-grid-august .bento-e .bento-image-wrapper video {
+  object-fit: cover;
+}
+
+/* September bento grid - balanced 10-photo layout */
+.bento-grid-september {
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "a a f f f f"
+    "a a b b e c"
+    "j i b b g d";
+  gap: 12px;
+}
+
+.bento-grid-september .bento-f img {
+  object-fit: contain;
+}
+
+/* October bento grid - 8 photos */
+.bento-grid-october {
+  grid-template-columns: repeat(4, 180px);
+  grid-template-rows: repeat(3, 180px);
+  grid-template-areas:
+    "a a b b"
+    "a a c d"
+    "e f g h";
+  gap: 12px;
+}
+
+/* November bento grid - creative layout (8 photos) */
+.bento-grid-november {
+  grid-template-columns: repeat(5, 180px);
+  grid-template-rows: repeat(4, 180px);
+  grid-template-areas:
+    "a a h d i"
+    "a a g b b"
+    "j k k b b"
+    "j k k b b";
+  gap: 12px;
+}
+
+/* December bento grid - grand finale (15 photos) */
+.bento-grid-december {
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(4, 180px);
+  grid-template-areas:
+    "a a b b c d"
+    "a a b b e f"
+    "g h i i j k"
+    "l m i i n o";
+  gap: 12px;
+}
+
+/* Phase 1 bento grid - 10 photos */
+.bento-grid-phase-1 {
+  grid-template-columns: repeat(5, 180px);
+  grid-template-rows: repeat(4, 180px);
+  grid-template-areas:
+    "a a b c d"
+    "a a e f g"
+    "h h i i j"
+    "h h i i j";
+  gap: 12px;
+}
+
+/* Phase 2 bento grid - 12 photos */
+.bento-grid-phase-2 {
+  grid-template-columns: repeat(6, 180px);
+  grid-template-rows: repeat(4, 180px);
+  grid-template-areas:
+    "a a b b c d"
+    "a a b b e f"
+    "g h i i j k"
+    "g h i i l l";
+  gap: 12px;
+}
+
+/* Phase 3 bento grid - 3 photos */
+.bento-grid-phase-3 {
+  grid-template-columns: repeat(3, 220px);
+  grid-template-rows: repeat(2, 220px);
+  grid-template-areas:
+    "a a b"
+    "a a c";
+  gap: 12px;
+}
+
+/* Video styling */
+.bento-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-item:hover .bento-video {
+  transform: scale(1.05);
+}
+
+/* Large screens - bigger bento */
+@media (min-width: 1200px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-february {
+    grid-template-columns: 340px repeat(3, 160px);
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .bento-grid-march {
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .bento-grid-april {
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 200px);
+  }
+
+  .bento-grid-may {
+    grid-template-columns: repeat(7, 180px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-june {
+    grid-template-columns: repeat(8, 180px);
+    grid-template-rows: repeat(4, 170px);
+    gap: 16px;
+  }
+
+  .bento-grid-july {
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: repeat(4, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-august {
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-september {
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-october {
+    grid-template-columns: repeat(4, 200px);
+    grid-template-rows: repeat(3, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-november {
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(4, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-december {
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: repeat(4, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-phase-1 {
+    grid-template-columns: repeat(5, 200px);
+    grid-template-rows: repeat(4, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-phase-2 {
+    grid-template-columns: repeat(6, 200px);
+    grid-template-rows: repeat(4, 200px);
+    gap: 16px;
+  }
+
+  .bento-grid-phase-3 {
+    grid-template-columns: repeat(3, 250px);
+    grid-template-rows: repeat(2, 250px);
+    gap: 16px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1600px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-february {
+    grid-template-columns: 380px repeat(3, 180px);
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .bento-grid-march {
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .bento-grid-april {
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(3, 220px);
+  }
+
+  .bento-grid-may {
+    grid-template-columns: repeat(7, 200px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-june {
+    grid-template-columns: repeat(8, 200px);
+    grid-template-rows: repeat(4, 190px);
+    gap: 18px;
+  }
+
+  .bento-grid-july {
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(4, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-august {
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-september {
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-october {
+    grid-template-columns: repeat(4, 220px);
+    grid-template-rows: repeat(3, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-november {
+    grid-template-columns: repeat(5, 220px);
+    grid-template-rows: repeat(4, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-december {
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(4, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-phase-1 {
+    grid-template-columns: repeat(5, 220px);
+    grid-template-rows: repeat(4, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-phase-2 {
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: repeat(4, 220px);
+    gap: 18px;
+  }
+
+  .bento-grid-phase-3 {
+    grid-template-columns: repeat(3, 280px);
+    grid-template-rows: repeat(2, 280px);
+    gap: 18px;
+  }
+}
+
+/* Lightbox styles */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 101;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.5rem;
+  opacity: 0.7;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-media {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border: 4px solid #ffffff;
+}
+
+/* ========================================
+   MOBILE RESPONSIVE STYLES (< 768px)
+   ======================================== */
+@media (max-width: 767px) {
+  /* Disable horizontal scroll - switch to vertical */
+  .horizontal-scroll-wrapper {
+    position: static;
+  }
+
+  .horizontal-scroll-container {
+    display: block !important;
+    transform: none !important;
+    will-change: auto;
+  }
+
+  /* Header - smaller on mobile */
+  .mobile-header {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Year watermark - smaller on mobile */
+  .year-watermark {
+    font-size: 40vw;
+    opacity: 0.15;
+  }
+
+  /* Phase/Month title - horizontal on mobile */
+  .month-title,
+  .phase-title {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    transform: none;
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ae2070;
+  }
+
+  /* Phase/Month sections - vertical layout */
+  .month-section-mobile,
+  .phase-section-mobile {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    height: auto;
+    padding: 4rem 1rem 2rem;
+  }
+
+  .month-section-mobile .month-title-wrapper,
+  .phase-section-mobile .phase-title-wrapper {
+    position: relative;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  /* Phase title mobile styles */
+  .phase-title-mobile-wrapper {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .phase-number-mobile {
+    display: block;
+    font-family: "Momo Trust Display", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ae2070;
+    opacity: 0.7;
+    margin-bottom: 0.25rem;
+  }
+
+  .phase-title-mobile {
+    font-family: "Momo Trust Display", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #ae2070;
+  }
+
+  /* Intro section - mobile */
+  .intro-section-mobile {
+    min-height: 100vh;
+    min-height: 100svh; /* Use small viewport height for mobile */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 3rem;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .intro-section-mobile h2 {
+    font-size: 3.5rem !important;
+  }
+
+  /* Outro section - mobile */
+  .outro-section-mobile {
+    min-height: 60vh;
+    height: auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .outro-section-mobile h2 {
+    font-size: 3rem !important;
+  }
+
+  /* Bento grid - simplified 2-column layout */
+  .bento-grid,
+  .bento-grid-january,
+  .bento-grid-february,
+  .bento-grid-march,
+  .bento-grid-april,
+  .bento-grid-may,
+  .bento-grid-june,
+  .bento-grid-july,
+  .bento-grid-august,
+  .bento-grid-september,
+  .bento-grid-october,
+  .bento-grid-november,
+  .bento-grid-december,
+  .bento-grid-phase-1,
+  .bento-grid-phase-2,
+  .bento-grid-phase-3 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+    grid-template-areas: none !important;
+    gap: 8px !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Reset all bento items to flow naturally */
+  .bento-item,
+  .bento-a,
+  .bento-b,
+  .bento-c,
+  .bento-d,
+  .bento-e,
+  .bento-f,
+  .bento-g,
+  .bento-h,
+  .bento-i,
+  .bento-j,
+  .bento-k,
+  .bento-l,
+  .bento-m,
+  .bento-n,
+  .bento-o {
+    grid-area: auto !important;
+    aspect-ratio: 1 !important;
+    min-height: 150px;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  /* Make first item span full width for emphasis */
+  .bento-item:first-child {
+    grid-column: span 2;
+    aspect-ratio: 16/9 !important;
+    min-height: 200px;
+  }
+
+  .bento-item {
+    border-width: 2px;
+  }
+
+  /* Ensure images fill their containers */
+  .bento-image-wrapper {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit;
+  }
+
+  .bento-image-wrapper .lazy-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .bento-image-wrapper img,
+  .bento-image-wrapper video,
+  .bento-image,
+  .bento-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    /* Force images to be visible - no animations on mobile */
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  /* Hide skeleton loader on mobile */
+  .skeleton-loader {
+    display: none !important;
+  }
+
+  /* Remove grayscale effect on mobile */
+  .bento-image-wrapper::after {
+    display: none !important;
+  }
+
+  .photo-card::after {
+    display: none !important;
+  }
+
+  /* Remove all hover animations on mobile */
+  .bento-item:hover {
+    transform: none;
+  }
+
+  .bento-item:hover .bento-image-wrapper img,
+  .bento-item:hover .bento-image {
+    transform: none;
+  }
+
+  /* Section dividers - hide on mobile */
+  .section-divider-mobile {
+    display: none;
+  }
+
+  /* Lightbox - mobile adjustments */
+  .lightbox-overlay {
+    padding: 1rem;
+  }
+
+  .lightbox-media {
+    max-width: 100vw;
+    max-height: 80vh;
+    border-width: 2px;
+  }
+
+  .lightbox-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  /* Month navigation - horizontal scrollable pills on mobile */
+  .month-nav-mobile {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .month-nav-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .month-nav-mobile .nav-inner {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0 1rem;
+    min-width: max-content;
+  }
+
+  .nav-text {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .month-title {
+    font-size: 2.5rem;
+  }
+
+  .intro-section-mobile h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .bento-grid,
+  .bento-grid-january,
+  .bento-grid-february,
+  .bento-grid-march,
+  .bento-grid-april,
+  .bento-grid-may,
+  .bento-grid-june,
+  .bento-grid-july,
+  .bento-grid-august,
+  .bento-grid-september,
+  .bento-grid-october,
+  .bento-grid-november,
+  .bento-grid-december,
+  .bento-grid-phase-1,
+  .bento-grid-phase-2,
+  .bento-grid-phase-3 {
+    gap: 6px;
+  }
+
+  .nav-text {
+    font-size: 0.6rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .bento-grid-february .bento-f img {
+    object-position: 0px 0px;
+  }
+}
+
+/* ========================================
+   PUM GALLERY PAGE
+   ======================================== */
+.pum-page {
+  min-height: 100vh;
+  background-color: #fdf8fb;
+  padding: 2rem;
+}
+
+.pum-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f5e6ef;
+}
+
+.pum-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #ae2070;
+}
+
+.pum-section {
+  margin-bottom: 2rem;
+}
+
+.pum-section-date {
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+  color: #ae2070;
+  margin: 0 0 1rem 0;
+}
+
+.pum-back-link {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  color: #ae2070;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pum-back-link:hover {
+  color: #8a1a5a;
+}
+
+.pum-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.pum-gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #f5e6ef;
+}
+
+.pum-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.pum-gallery-item:hover img {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Pum Gallery Responsive */
+@media (max-width: 1024px) {
+  .pum-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .pum-page {
+    padding: 1rem;
+  }
+
+  .pum-header h1 {
+    font-size: 2rem;
+  }
+
+  .pum-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .pum-gallery-item {
+    border-radius: 2px;
+  }
+}
